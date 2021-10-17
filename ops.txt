@@ -1,0 +1,38 @@
+将jar导入maven仓库，使用此命令
+mvn install:install-file -Dfile=jar包的位置(参数一) -DgroupId=groupId(参数二) -DartifactId=artifactId(参数三) -Dversion=version(参数四) -Dpackaging=jar
+例如：
+mvn install:install-file -DgroupId=org.pivotal -DartifactId=greenplum -Dversion=6.3.0 -Dpackaging=jar -Dfile=greenplum.jar
+
+----------------git proxy代理设置--------------------------
+
+设置如下（可复制）：
+git config --global http.proxy http://127.0.0.1:10001
+git config --global https.proxy https://127.0.0.1:10001
+
+git config --global http.proxy 'socks5://127.0.0.1:1080' 
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+
+
+----------------git proxy代理取消--------------------------
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+https://goproxy.cn,direct
+
+go env -w GOPROXY=https://goproxy.cn,direct
+go env -w GO111MODULE=on
+
+linux:
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
+
+windows:
+SET CGO_ENABLED=0
+SET GOARCH=amd64
+SET GOOS=linux
+go build
+
+export CGO_ENABLED=0
+export GOARCH=amd64
+export GOOS=linux
+go build
